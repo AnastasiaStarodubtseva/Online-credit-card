@@ -1,3 +1,27 @@
+function doubleEverySecondDigitFromRight(digits) {
+  return digits.reverse().map(function (digit, index) {
+    return index % 2 === 0 ? digit : digit * 2;
+  }).reverse();
+}
+
+function sumDigits(digits) {
+  return digits
+          .join('')
+          .split('')
+          .map(function(number) { return parseInt(number)})
+          .reduce(function(accumulator, currentValue) {
+            return accumulator + currentValue
+          } ,0);
+}
+
+function mod10(number) {
+  return number % 10;
+}
+
+function luhn(cardNumber) {
+  return 0 === mod10(sumDigits(doubleEverySecondDigitFromRight(cardNumber)));
+}
+
 function render() {
   ReactDOM.render (
     React.createElement('div', {className: 'credit-card'}, [
@@ -21,7 +45,6 @@ function render() {
     height: document.querySelector('.credit-card').clientHeight,
     xColors: 'Purples',
     cellSize: 30
-
   })
   document.querySelector('.credit-card').appendChild(pattern.toCanvas());
 }
