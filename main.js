@@ -37,6 +37,8 @@ function render() {
         React.createElement('span', {className: 'third-col'}, '0000'),
         React.createElement('span', {className: 'fourth-col'}, '0000')
       ]),
+      React.createElement('span', {className: 'card-holder'}, 'Alexander Petrov'),
+      React.createElement('span', {className: 'card-holder second-row'}, 'Alexander Petrov')
     ]),
     document.getElementById('root')
   )
