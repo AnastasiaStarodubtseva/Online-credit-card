@@ -25,6 +25,16 @@ function luhn(cardNumber) {
 function render() {
   ReactDOM.render (
     React.createElement('div', {className: 'credit-card'}, [
+      React.createElement('div', {className: 'chip'}, [
+        React.createElement('div', {className: 'side-top-left'}, ''),
+        React.createElement('div', {className: 'top'}, ''),
+        React.createElement('div', {className: 'center'}, ''),
+        React.createElement('div', {className: 'bottom'}, ''),
+        React.createElement('div', {className: 'side-right'}, ''),
+        React.createElement('div', {className: 'vertical-top'}, ''),
+        React.createElement('div', {className: 'vertical-center'}, ''),
+        React.createElement('div', {className: 'vertical-bottom'}, ''),
+      ]),
       React.createElement('div', {className: 'credit-card-number'}, [
         React.createElement('span', {className: 'first-col'}, '0000'),
         React.createElement('span', {className: 'second-col'}, '0000'),
@@ -47,7 +57,6 @@ function render() {
         React.createElement('span', {className: 'metal'}, 'Alexander Petrov'),
         React.createElement('span', {className: 'metal second-row'}, 'Alexander Petrov')
       ])
-
     ]),
     document.getElementById('root')
   )

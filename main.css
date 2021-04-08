@@ -55,7 +55,7 @@ div#root {
 .credit-card-number {
   position: absolute;
   z-index: 100;
-  bottom: 70px;
+  bottom: 60px;
   letter-spacing: 3px;
   color: #eaeaea;
   font-size: 20px;
@@ -135,4 +135,91 @@ div#root {
 .dates.second-row {
   z-index: 1;
     text-shadow: 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0.8px rgb(0 0 0), -0.8px -0.8px 0 #fff;
+}
+
+.chip {
+  border: 1px solid #bbb6b6;
+  position: absolute;
+  z-index: 99999999999;
+  width: 13.5mm;
+  height: 12mm;
+  top: 18mm;
+  left: 8.5mm;
+  border-radius: 3.2mm;
+  border-top: 2px solid #bbb6b6;
+  background: rgb(215,215,219);
+  background: -moz-linear-gradient(0deg, rgba(215,215,219,0.8757878151260504) 59%, rgba(184,196,199,0.4051995798319328) 84%);
+  background: -webkit-linear-gradient(0deg, rgba(215,215,219,0.8757878151260504) 59%, rgba(184,196,199,0.4051995798319328) 84%);
+  background: linear-gradient(0deg, rgba(215,215,219,0.8757878151260504) 59%, rgba(184,196,199,0.4051995798319328) 84%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d7d7db",endColorstr="#b8c4c7",GradientType=1);
+}
+
+.side-top-left {
+  display: inline;
+  border: 1px solid #bbb6b6;
+  height: 42px;
+  position: absolute;
+  left: 27%;
+  border-left: none;
+}
+
+.top {
+  position: absolute;
+  border-top: 1px solid #bbb6b6;
+  height: 10px;
+  width: 13px;
+  top: 11px;
+}
+
+.center {
+  position: absolute;
+  border-top: 1px solid #bbb6b6;
+  height: 10px;
+  width: 13px;
+  top: 22px;
+}
+
+.bottom {
+  position: absolute;
+  border-top: 1px solid #bbb6b6;
+  height: 10px;
+  width: 13px;
+  top: 32px;
+}
+
+.side-right {
+  display: inline;
+  border: 1px solid #bbb6b6;
+  height: 29px;
+  position: absolute;
+  right: 27%;
+  border-left: none;
+  top: 13px;
+}
+
+.vertical-top {
+  position: absolute;
+  border-top: 1px solid #bbb6b6;
+  height: 10px;
+  width: 13px;
+  right: 0px;
+  top: 13px;
+}
+
+.vertical-bottom {
+  position: absolute;
+  border-top: 1px solid #bbb6b6;
+  height: 10px;
+  width: 13px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.vertical-center {
+  position: absolute;
+  border-top: 1px solid #bbb6b6;
+  height: 10px;
+  width: 13px;
+  right: 0px;
+  bottom: 9px;
 }
