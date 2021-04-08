@@ -37,8 +37,17 @@ function render() {
         React.createElement('span', {className: 'third-col'}, '0000'),
         React.createElement('span', {className: 'fourth-col'}, '0000')
       ]),
-      React.createElement('span', {className: 'card-holder'}, 'Alexander Petrov'),
-      React.createElement('span', {className: 'card-holder second-row'}, 'Alexander Petrov')
+      React.createElement('div', {className: 'expiry-dates'}, [
+        React.createElement('input', {type: 'text'}, null),
+        React.createElement('span', {className: 'dates'}, 'MM/YY'),
+        React.createElement('span', {className: 'dates second-row'}, 'MM/YY')
+      ]),
+      React.createElement('div', {className: 'card-holder'}, [
+        React.createElement('input', {type: 'text'}, null),
+        React.createElement('span', {className: 'metal'}, 'Alexander Petrov'),
+        React.createElement('span', {className: 'metal second-row'}, 'Alexander Petrov')
+      ])
+
     ]),
     document.getElementById('root')
   )
