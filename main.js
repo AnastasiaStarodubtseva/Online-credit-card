@@ -25,37 +25,43 @@ function luhn(cardNumber) {
 function render() {
   ReactDOM.render (
     React.createElement('div', {className: 'credit-card'}, [
-      React.createElement('div', {className: 'chip'}, [
-        React.createElement('div', {className: 'side-top-left'}, ''),
-        React.createElement('div', {className: 'top'}, ''),
-        React.createElement('div', {className: 'center'}, ''),
-        React.createElement('div', {className: 'bottom'}, ''),
-        React.createElement('div', {className: 'side-right'}, ''),
-        React.createElement('div', {className: 'vertical-top'}, ''),
-        React.createElement('div', {className: 'vertical-center'}, ''),
-        React.createElement('div', {className: 'vertical-bottom'}, ''),
-      ]),
-      React.createElement('div', {className: 'credit-card-number'}, [
-        React.createElement('span', {className: 'first-col'}, '0000'),
-        React.createElement('span', {className: 'second-col'}, '0000'),
-        React.createElement('span', {className: 'third-col'}, '0000'),
-        React.createElement('span', {className: 'fourth-col'}, '0000')
-      ]),
-      React.createElement('div', {className: 'credit-card-number second-row'}, [
-        React.createElement('span', {className: 'first-col'}, '0000'),
-        React.createElement('span', {className: 'second-col'}, '0000'),
-        React.createElement('span', {className: 'third-col'}, '0000'),
-        React.createElement('span', {className: 'fourth-col'}, '0000')
-      ]),
-      React.createElement('div', {className: 'expiry-dates'}, [
-        React.createElement('input', {type: 'text'}, null),
-        React.createElement('span', {className: 'dates'}, 'MM/YY'),
-        React.createElement('span', {className: 'dates second-row'}, 'MM/YY')
-      ]),
-      React.createElement('div', {className: 'card-holder'}, [
-        React.createElement('input', {type: 'text'}, null),
-        React.createElement('span', {className: 'metal'}, 'Alexander Petrov'),
-        React.createElement('span', {className: 'metal second-row'}, 'Alexander Petrov')
+      React.createElement('div', {className: 'credit-card-inner'}, [
+        React.createElement('div', {className: 'credit-card-front'}, [
+          React.createElement('div', {className: 'chip'}, [
+            React.createElement('div', {className: 'side-top-left'}, ''),
+            React.createElement('div', {className: 'top'}, ''),
+            React.createElement('div', {className: 'center'}, ''),
+            React.createElement('div', {className: 'bottom'}, ''),
+            React.createElement('div', {className: 'side-right'}, ''),
+            React.createElement('div', {className: 'vertical-top'}, ''),
+            React.createElement('div', {className: 'vertical-center'}, ''),
+            React.createElement('div', {className: 'vertical-bottom'}, ''),
+          ]),
+          React.createElement('div', {className: 'credit-card-number'}, [
+            React.createElement('input', {type: 'text'}, null),
+            React.createElement('span', {className: 'metal first-col'}, '0000'),
+            React.createElement('span', {className: 'metal second-col'}, '0000'),
+            React.createElement('span', {className: 'metal third-col'}, '0000'),
+            React.createElement('span', {className: 'metal fourth-col'}, '0000'),
+            React.createElement('span', {className: 'metal second-row first-col'}, '0000'),
+            React.createElement('span', {className: 'metal second-row second-col'}, '0000'),
+            React.createElement('span', {className: 'metal second-row third-col'}, '0000'),
+            React.createElement('span', {className: 'metal second-row fourth-col'}, '0000')
+          ]),
+          React.createElement('div', {className: 'expiry-dates'}, [
+            React.createElement('input', {type: 'text'}, null),
+            React.createElement('span', {className: 'dates'}, 'MM/YY'),
+            React.createElement('span', {className: 'dates second-row'}, 'MM/YY')
+          ]),
+          React.createElement('div', {className: 'card-holder'}, [
+            React.createElement('input', {type: 'text'}, null),
+            React.createElement('span', {className: 'metal'}, 'Alexander Petrov'),
+            React.createElement('span', {className: 'metal second-row'}, 'Alexander Petrov')
+          ])
+        ]),
+        React.createElement('div', {className: 'credit-card-back'}, [
+
+        ])
       ])
     ]),
     document.getElementById('root')

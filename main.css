@@ -54,37 +54,15 @@ div#root {
 
 .credit-card-number {
   position: absolute;
-  z-index: 100;
-  bottom: 60px;
-  letter-spacing: 3px;
-  color: #eaeaea;
-  font-size: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.credit-card-number span {
-  margin: 0 8px;
-  background: linear-gradient(#262626,#eaeaea,#262626);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.credit-card-number.second-row {
-  z-index: 1;
-  text-shadow: 1px 1px 0 #262626, 1px 1px 0 #262626, 1px 1px 0 #262626, 1px 1px 0 #262626, 1px 1px 0 #262626, 1px 1px 0 #262626, 1px 1px 1px rgb(0 0 0), -1px -1px 0 #fff;
-}
-
-.card-holder {
-  position: absolute;
-  bottom: 40px;
+  bottom: 62px;
   transform: translateX(16px);
   width: 206px;
   height: 22px;
+  font-size: 25px;
   z-index: 9999999;
 }
 
-.card-holder > input {
+.credit-card-number > input {
   opacity: 0;
   width: 280px;
   position: absolute;
@@ -99,6 +77,42 @@ div#root {
   color: transparent;
   margin-top: 2px;
   left: 5px;
+}
+
+span.metal.first-col {
+  left: 9px;
+}
+
+span.metal.second-col {
+  left: 75px;
+}
+
+span.metal.third-col {
+  left: 142px;
+}
+
+span.metal.fourth-col {
+  left: 209px;
+}
+
+.metal.second-row {
+  z-index: 1;
+  text-shadow: 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0 #262626, 0.8px 0.8px 0.8px rgb(0 0 0), -0.8px -0.8px 0 #fff;
+}
+
+.card-holder {
+  position: absolute;
+  bottom: 33px;
+  transform: translateX(16px);
+  width: 206px;
+  height: 22px;
+  z-index: 9999999;
+}
+
+.card-holder > input {
+  opacity: 0;
+  width: 280px;
+  position: absolute;
 }
 
 .metal.second-row {
@@ -122,9 +136,9 @@ div#root {
 
 .dates {
   position: absolute;
-  transform: translateX(-47px);
+  transform: translateX(-58px);
   font-size: 14px;
-  bottom: 2px;
+  bottom: 19px;
   backface-visibility: hidden;
   background: linear-gradient(#262626,#eaeaea,#262626);
   -webkit-background-clip: text;
@@ -138,6 +152,7 @@ div#root {
 }
 
 .chip {
+  user-select: none;
   border: 1px solid #bbb6b6;
   position: absolute;
   z-index: 99999999999;
