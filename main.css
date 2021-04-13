@@ -66,6 +66,7 @@ div#root {
   opacity: 0;
   width: 280px;
   position: absolute;
+  z-index: 9999999;
 }
 
 .metal {
@@ -238,4 +239,12 @@ span.metal.fourth-col {
   width: 13px;
   right: 0px;
   bottom: 9px;
+}
+
+img.logo {
+  width: 22px;
+  position: absolute;
+  z-index: 99999999999;
+  bottom: 10px;
+  right: 27px;
 }
