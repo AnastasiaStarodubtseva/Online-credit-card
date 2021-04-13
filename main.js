@@ -6,6 +6,9 @@ function reducer(model, action){
     case 'SET-EXPIRY-DATE':
       model.expiryDate = action.payload.split('');
       return model;
+    case 'SET-CARD-HOLDER':
+      model.cardHolder = action.payload.split('');
+      return model;
     default:
       return model;
   }
@@ -13,7 +16,8 @@ function reducer(model, action){
 
 var store = Redux.createStore(reducer, {
   cardNumber: [],
-  expiryDate: []
+  expiryDate: [],
+  cardHolder: []
 });
 
 const e = React.createElement;
@@ -83,9 +87,11 @@ function render() {
               e('span', {className: 'dates second-row'}, expiryDate)
             ]),
             e('div', {className: 'card-holder'}, [
-              e('input', {type: 'text'}, null),
-              e('span', {className: 'metal'}, 'Alexander Petrov'),
-              e('span', {className: 'metal second-row'}, 'Alexander Petrov')
+              e('input', {type: 'text', onInput: function(event) {
+                store.dispatch({type: 'SET-CARD-HOLDER', payload: event.target.value})
+              }}, null),
+              e('span', {className: 'metal'}, state.cardHolder),
+              e('span', {className: 'metal second-row'}, state.cardHolder)
             ])
           ]),
         ])
