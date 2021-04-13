@@ -46,17 +46,32 @@ function luhn(cardNumber) {
   return 0 === mod10(sumDigits(doubleEverySecondDigitFromRight(cardNumber)));
 }
 
+function cardProvider(cardNumber) {
+  switch (cardNumber[0]) {
+    case '3':
+      return e('img', {className: 'americanExpress-logo', src: './img/american-express.png'}, null );
+    case '4':
+      return e('img', {className: 'visa-logo', src: './img/visa.png'}, null);
+    case '5':
+      return e('img', {className: 'mastercard-logo', src: './img/master-card.png'}, null);
+    default:
+      return null;
+  }
+}
+
+
 function render() {
   var state = store.getState();
-  var expiryDate = state.expiryDate.slice(0, 2).join('') + '/'
-  + store.getState().expiryDate.slice(2, 4).join('');
+  var expirySeparator = state.expiryDate.length >= 2 ? '/' : '';
+  var expiryDate = state.expiryDate.length ? state.expiryDate.slice(0, 2).join('') + expirySeparator
+  + store.getState().expiryDate.slice(2, 4).join('') : 'MM/YY';
 
   var firstCol = state.cardNumber.length ? state.cardNumber.slice(0, 4) : '0000';
   var secondCol = state.cardNumber.length ? state.cardNumber.slice(4, 8) : '0000';
   var thirdCol = state.cardNumber.length ? state.cardNumber.slice(8, 12) : '0000';
   var fourthCol = state.cardNumber.length ? state.cardNumber.slice(12, 16) : '0000';
 
-  var cardHolder = state.cardHolder.length ? state.cardHolder : 'Alexander Petrov';
+  var cardHolder = state.cardHolder.length ? state.cardHolder : 'ALEXANDER PETROV';
 
   ReactDOM.render (
     e(ReactRedux.Provider, { store: store }, [
@@ -98,7 +113,7 @@ function render() {
           e('span', {className: 'metal'}, cardHolder),
           e('span', {className: 'metal second-row'}, cardHolder)
         ]),
-        e('img', {className: 'logo', src: './img/master_card.jpg'}, null)
+        cardProvider(state.cardNumber)
       ]),
     ]),
     document.getElementById('root')
@@ -109,8 +124,8 @@ function render() {
     xColors: 'Purples',
     cellSize: 30
   })
-  if (document.querySelector('canvas') === null) {
-    document.querySelector('.credit-card').appendChild(pattern.toCanvas());
+  if (document.querySelector('svg') === null) {
+    document.querySelector('.credit-card').appendChild(pattern.toSVG());
   }
 }
 
