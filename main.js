@@ -7,7 +7,7 @@ function reducer(model, action){
       model.expiryDate = action.payload.split('');
       return model;
     case 'SET-CARD-HOLDER':
-      model.cardHolder = action.payload.split('');
+      model.cardHolder = action.payload.replace(/[^a-zA-Z|\-|\s]/g, '').toUpperCase();
       return model;
     default:
       return model;
@@ -17,7 +17,7 @@ function reducer(model, action){
 var store = Redux.createStore(reducer, {
   cardNumber: [],
   expiryDate: [],
-  cardHolder: []
+  cardHolder: ''
 });
 
 const e = React.createElement;
@@ -56,6 +56,8 @@ function render() {
   var thirdCol = state.cardNumber.length ? state.cardNumber.slice(8, 12) : '0000';
   var fourthCol = state.cardNumber.length ? state.cardNumber.slice(12, 16) : '0000';
 
+  var cardHolder = state.cardHolder.length ? state.cardHolder : 'Alexander Petrov';
+
   ReactDOM.render (
     e(ReactRedux.Provider, { store: store }, [
       e('div', {className: 'credit-card'}, [
@@ -90,11 +92,11 @@ function render() {
           e('span', {className: 'dates second-row'}, expiryDate)
         ]),
         e('div', {className: 'card-holder'}, [
-          e('input', {type: 'text', onInput: function(event) {
+          e('input', {type: 'text', value: state.cardHolder, maxLength: '23', onInput: function(event) {
             store.dispatch({type: 'SET-CARD-HOLDER', payload: event.target.value})
           }}, null),
-          e('span', {className: 'metal'}, state.cardHolder),
-          e('span', {className: 'metal second-row'}, state.cardHolder)
+          e('span', {className: 'metal'}, cardHolder),
+          e('span', {className: 'metal second-row'}, cardHolder)
         ]),
         e('img', {className: 'logo', src: './img/master_card.jpg'}, null)
       ]),

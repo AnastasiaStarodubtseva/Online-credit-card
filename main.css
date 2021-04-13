@@ -76,7 +76,7 @@ div#root {
   background: linear-gradient(#262626,#eaeaea,#262626);
   -webkit-background-clip: text;
   color: transparent;
-  left: 5px;
+  left: 12px;
 }
 
 span.metal.first-col {
@@ -113,6 +113,7 @@ span.metal.fourth-col {
   opacity: 0;
   width: 210px;
   position: absolute;
+  z-index: 9999999;
 }
 
 .metal.second-row {
