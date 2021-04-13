@@ -1,7 +1,10 @@
 function reducer(model, action){
   switch(action.type) {
     case 'SET-CARD-NUMBER':
-      model.cardNumber = action.payload.split("");
+      model.cardNumber = action.payload.split('');
+      return model;
+    case 'SET-EXPIRY-DATE':
+      model.expiryDate = action.payload.split('');
       return model;
     default:
       return model;
@@ -9,7 +12,8 @@ function reducer(model, action){
 }
 
 var store = Redux.createStore(reducer, {
-  cardNumber: []
+  cardNumber: [],
+  expiryDate: []
 });
 
 const e = React.createElement;
@@ -39,43 +43,49 @@ function luhn(cardNumber) {
 }
 
 function render() {
+  var state = store.getState();
+  var expiryDate = state.expiryDate.slice(0, 2).join('') + '/'
+  + store.getState().expiryDate.slice(2, 4).join('');
+
   ReactDOM.render (
-    React.createElement(ReactRedux.Provider, { store: store }, [
-      React.createElement('div', {className: 'credit-card'}, [
-        React.createElement('div', {className: 'credit-card-inner'}, [
-          React.createElement('div', {className: 'credit-card-front'}, [
-            React.createElement('div', {className: 'chip'}, [
-              React.createElement('div', {className: 'side-top-left'}, ''),
-              React.createElement('div', {className: 'top'}, ''),
-              React.createElement('div', {className: 'center'}, ''),
-              React.createElement('div', {className: 'bottom'}, ''),
-              React.createElement('div', {className: 'side-right'}, ''),
-              React.createElement('div', {className: 'vertical-top'}, ''),
-              React.createElement('div', {className: 'vertical-center'}, ''),
-              React.createElement('div', {className: 'vertical-bottom'}, ''),
+    e(ReactRedux.Provider, { store: store }, [
+      e('div', {className: 'credit-card'}, [
+        e('div', {className: 'credit-card-inner'}, [
+          e('div', {className: 'credit-card-front'}, [
+            e('div', {className: 'chip'}, [
+              e('div', {className: 'side-top-left'}, ''),
+              e('div', {className: 'top'}, ''),
+              e('div', {className: 'center'}, ''),
+              e('div', {className: 'bottom'}, ''),
+              e('div', {className: 'side-right'}, ''),
+              e('div', {className: 'vertical-top'}, ''),
+              e('div', {className: 'vertical-center'}, ''),
+              e('div', {className: 'vertical-bottom'}, ''),
             ]),
-            React.createElement('div', {className: 'credit-card-number'}, [
-              React.createElement('input', {type: 'text', maxLength: '16', onInput: function(event) {
+            e('div', {className: 'credit-card-number'}, [
+              e('input', {type: 'text', maxLength: '16', onInput: function(event) {
                 store.dispatch({type: 'SET-CARD-NUMBER', payload: event.target.value})
                 }}, null),
-              React.createElement('span', {className: 'metal first-col'}, store.getState().cardNumber.slice(0, 4)),
-              React.createElement('span', {className: 'metal second-col'}, store.getState().cardNumber.slice(4, 8)),
-              React.createElement('span', {className: 'metal third-col'}, store.getState().cardNumber.slice(8, 12)),
-              React.createElement('span', {className: 'metal fourth-col'}, store.getState().cardNumber.slice(12, 16)),
-              React.createElement('span', {className: 'metal second-row first-col'}, store.getState().cardNumber.slice(0, 4)),
-              React.createElement('span', {className: 'metal second-row second-col'}, store.getState().cardNumber.slice(4, 8)),
-              React.createElement('span', {className: 'metal second-row third-col'}, store.getState().cardNumber.slice(8, 12)),
-              React.createElement('span', {className: 'metal second-row fourth-col'}, store.getState().cardNumber.slice(12, 16))
+              e('span', {className: 'metal first-col'}, state.cardNumber.slice(0, 4)),
+              e('span', {className: 'metal second-col'}, state.cardNumber.slice(4, 8)),
+              e('span', {className: 'metal third-col'}, state.cardNumber.slice(8, 12)),
+              e('span', {className: 'metal fourth-col'}, state.cardNumber.slice(12, 16)),
+              e('span', {className: 'metal second-row first-col'}, state.cardNumber.slice(0, 4)),
+              e('span', {className: 'metal second-row second-col'}, state.cardNumber.slice(4, 8)),
+              e('span', {className: 'metal second-row third-col'}, state.cardNumber.slice(8, 12)),
+              e('span', {className: 'metal second-row fourth-col'}, state.cardNumber.slice(12, 16))
             ]),
-            React.createElement('div', {className: 'expiry-dates'}, [
-              React.createElement('input', {type: 'text'}, null),
-              React.createElement('span', {className: 'dates'}, 'MM/YY'),
-              React.createElement('span', {className: 'dates second-row'}, 'MM/YY')
+            e('div', {className: 'expiry-dates'}, [
+              e('input', {type: 'text', maxLength: '4', onInput: function(event) {
+                store.dispatch({type: 'SET-EXPIRY-DATE', payload: event.target.value})
+              }}, null),
+              e('span', {className: 'dates'}, expiryDate),
+              e('span', {className: 'dates second-row'}, expiryDate)
             ]),
-            React.createElement('div', {className: 'card-holder'}, [
-              React.createElement('input', {type: 'text'}, null),
-              React.createElement('span', {className: 'metal'}, 'Alexander Petrov'),
-              React.createElement('span', {className: 'metal second-row'}, 'Alexander Petrov')
+            e('div', {className: 'card-holder'}, [
+              e('input', {type: 'text'}, null),
+              e('span', {className: 'metal'}, 'Alexander Petrov'),
+              e('span', {className: 'metal second-row'}, 'Alexander Petrov')
             ])
           ]),
         ])

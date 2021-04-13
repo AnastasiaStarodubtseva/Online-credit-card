@@ -110,7 +110,7 @@ span.metal.fourth-col {
 
 .card-holder > input {
   opacity: 0;
-  width: 280px;
+  width: 210px;
   position: absolute;
 }
 
@@ -130,7 +130,9 @@ span.metal.fourth-col {
 .expiry-dates > input {
   opacity: 0;
   width: 50px;
-
+  position: absolute;
+  transform: translateX(-62px);
+  bottom: 19px;
 }
 
 .dates {
