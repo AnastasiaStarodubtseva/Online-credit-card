@@ -105,7 +105,9 @@ function render() {
     xColors: 'Purples',
     cellSize: 30
   })
-  document.querySelector('.credit-card').appendChild(pattern.toCanvas());
+  if (document.querySelector('canvas') === null) {
+    document.querySelector('.credit-card').appendChild(pattern.toCanvas());
+  }
 }
 
 store.subscribe(function() { render(); });
