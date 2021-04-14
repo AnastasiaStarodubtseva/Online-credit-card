@@ -12,6 +12,8 @@ function reducer(model, action){
     case 'FLIP-CARD':
       model.cardIsFlipped = !model.cardIsFlipped;
       return model;
+    case 'SET-VERIFICATION-CODE':
+      model.verificationCode = action.payload.replace(/\D+/g, '').split('');
     default:
       return model;
   }
@@ -21,7 +23,8 @@ var store = Redux.createStore(reducer, {
   cardNumber: [],
   expiryDate: [],
   cardHolder: '',
-  cardIsFlipped: false
+  cardIsFlipped: false,
+  verificationCode: []
 });
 
 const e = React.createElement;
@@ -69,6 +72,8 @@ function render() {
   var expirySeparator = state.expiryDate.length >= 2 ? '/' : '';
   var expiryDate = state.expiryDate.length ? state.expiryDate.slice(0, 2).join('') + expirySeparator
   + store.getState().expiryDate.slice(2, 4).join('') : 'MM/YY';
+  var verificationCode = state.verificationCode.length ? state.verificationCode.slice(0, 3).join('') : 'CVV/CVC';
+
 
   var firstCol = state.cardNumber.length ? state.cardNumber.slice(0, 4) : '0000';
   var secondCol = state.cardNumber.length ? state.cardNumber.slice(4, 8) : '0000';
@@ -122,7 +127,13 @@ function render() {
         ]),
         e('div', {className: 'credit-card-back'}, [
           e('div', {className: 'magnetic-stripe'}, []),
-          e('div', {className: 'validation-code'}, 'CVV/CVC')
+          e('div', {className: 'verification-code'}, [
+            e('input', {type: 'text', maxLength: '4', onInput: function(event) {
+              console.log(event);
+              store.dispatch({type: 'SET-VERIFICATION-CODE', payload: event.target.value})
+            }}, null),
+            e('span', {className: 'code'}, verificationCode)
+          ]),
         ]),
         e('button', {className: 'flip-card', onClick: function(event) {
           store.dispatch({type: 'FLIP-CARD'})
