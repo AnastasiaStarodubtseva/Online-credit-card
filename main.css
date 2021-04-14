@@ -31,20 +31,19 @@ div#root {
 }
 
 .credit-card {
-  background-color: #fff;
   position: absolute;
-  box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1.4);
-  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform .6s linear;
 
   /* Card dimensions specified in mm
    * Source: https://en.wikipedia.org/wiki/ISO/IEC_7810
    */
+
   height: 53.98mm;
   width: 85.6mm;
-  border-radius: 3mm;
 }
 
 .credit-card > svg {
@@ -268,4 +267,51 @@ span.metal.fourth-col {
   top: 1px;
   right: 20px;
   user-select: none;
+}
+
+
+.credit-card-front {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .6s linear;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+  border-radius: 3mm;
+}
+
+.credit-card-back {
+  transform: perspective(600px) rotateY(180deg);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform .6s linear;
+  background-color: #7360ab;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+  border-radius: 3mm;
+}
+
+.credit-card.flipped > .credit-card-front{
+  transform: perspective(600px) rotateY(-180deg);
+}
+.credit-card.flipped > .credit-card-back{
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.magnetic-stripe {
+  background-color: #0000;
+  width: 100%;
+  position: absolute;
+  z-index: 99999999999;
+}
+
+.flip-card {
+  position: absolute;
+  bottom: -30px;
+  transform: translateX(-50%);
+  left: 50%;
 }

@@ -9,6 +9,9 @@ function reducer(model, action){
     case 'SET-CARD-HOLDER':
       model.cardHolder = action.payload.replace(/[^a-zA-Z|\-|\s]/g, '').toUpperCase();
       return model;
+    case 'FLIP-CARD':
+      model.cardIsFlipped = !model.cardIsFlipped;
+      return model;
     default:
       return model;
   }
@@ -17,7 +20,8 @@ function reducer(model, action){
 var store = Redux.createStore(reducer, {
   cardNumber: [],
   expiryDate: [],
-  cardHolder: ''
+  cardHolder: '',
+  cardIsFlipped: false
 });
 
 const e = React.createElement;
@@ -75,45 +79,54 @@ function render() {
 
   ReactDOM.render (
     e(ReactRedux.Provider, { store: store }, [
-      e('div', {className: 'credit-card'}, [
-        e('div', {className: 'chip'}, [
-          e('div', {className: 'side-top-left'}, ''),
-          e('div', {className: 'top'}, ''),
-          e('div', {className: 'center'}, ''),
-          e('div', {className: 'bottom'}, ''),
-          e('div', {className: 'side-right'}, ''),
-          e('div', {className: 'vertical-top'}, ''),
-          e('div', {className: 'vertical-center'}, ''),
-          e('div', {className: 'vertical-bottom'}, ''),
-        ]),
-        e('div', {className: 'credit-card-number'}, [
-          e('input', {type: 'text', maxLength: '16', onInput: function(event) {
-            store.dispatch({type: 'SET-CARD-NUMBER', payload: event.target.value})
+      e('div', {className: 'credit-card ' + (state.cardIsFlipped ? 'flipped' : '')}, [
+        e('div', {className: 'credit-card-front'}, [
+          e('div', {className: 'chip'}, [
+            e('div', {className: 'side-top-left'}, ''),
+            e('div', {className: 'top'}, ''),
+            e('div', {className: 'center'}, ''),
+            e('div', {className: 'bottom'}, ''),
+            e('div', {className: 'side-right'}, ''),
+            e('div', {className: 'vertical-top'}, ''),
+            e('div', {className: 'vertical-center'}, ''),
+            e('div', {className: 'vertical-bottom'}, ''),
+          ]),
+          e('div', {className: 'credit-card-number'}, [
+            e('input', {type: 'text', maxLength: '16', onInput: function(event) {
+              store.dispatch({type: 'SET-CARD-NUMBER', payload: event.target.value})
+              }}, null),
+            e('span', {className: 'metal first-col'}, firstCol),
+            e('span', {className: 'metal second-col'}, secondCol),
+            e('span', {className: 'metal third-col'}, thirdCol),
+            e('span', {className: 'metal fourth-col'}, fourthCol),
+            e('span', {className: 'metal second-row first-col'}, firstCol),
+            e('span', {className: 'metal second-row second-col'}, secondCol),
+            e('span', {className: 'metal second-row third-col'}, thirdCol),
+            e('span', {className: 'metal second-row fourth-col'}, fourthCol)
+          ]),
+          e('div', {className: 'expiry-dates'}, [
+            e('input', {type: 'text', maxLength: '4', onInput: function(event) {
+              store.dispatch({type: 'SET-EXPIRY-DATE', payload: event.target.value})
             }}, null),
-          e('span', {className: 'metal first-col'}, firstCol),
-          e('span', {className: 'metal second-col'}, secondCol),
-          e('span', {className: 'metal third-col'}, thirdCol),
-          e('span', {className: 'metal fourth-col'}, fourthCol),
-          e('span', {className: 'metal second-row first-col'}, firstCol),
-          e('span', {className: 'metal second-row second-col'}, secondCol),
-          e('span', {className: 'metal second-row third-col'}, thirdCol),
-          e('span', {className: 'metal second-row fourth-col'}, fourthCol)
+            e('span', {className: 'dates'}, expiryDate),
+            e('span', {className: 'dates second-row'}, expiryDate)
+          ]),
+          e('div', {className: 'card-holder'}, [
+            e('input', {type: 'text', value: state.cardHolder, maxLength: '23', onInput: function(event) {
+              store.dispatch({type: 'SET-CARD-HOLDER', payload: event.target.value})
+            }}, null),
+            e('span', {className: 'metal'}, cardHolder),
+            e('span', {className: 'metal second-row'}, cardHolder)
+          ]),
+          cardProvider(state.cardNumber)
         ]),
-        e('div', {className: 'expiry-dates'}, [
-          e('input', {type: 'text', maxLength: '4', onInput: function(event) {
-            store.dispatch({type: 'SET-EXPIRY-DATE', payload: event.target.value})
-          }}, null),
-          e('span', {className: 'dates'}, expiryDate),
-          e('span', {className: 'dates second-row'}, expiryDate)
+        e('div', {className: 'credit-card-back'}, [
+          e('div', {className: 'magnetic-stripe'}, []),
+          e('div', {className: 'validation-code'}, 'CVV/CVC')
         ]),
-        e('div', {className: 'card-holder'}, [
-          e('input', {type: 'text', value: state.cardHolder, maxLength: '23', onInput: function(event) {
-            store.dispatch({type: 'SET-CARD-HOLDER', payload: event.target.value})
-          }}, null),
-          e('span', {className: 'metal'}, cardHolder),
-          e('span', {className: 'metal second-row'}, cardHolder)
-        ]),
-        cardProvider(state.cardNumber)
+        e('button', {className: 'flip-card', onClick: function(event) {
+          store.dispatch({type: 'FLIP-CARD'})
+        }}, 'Button'),
       ]),
     ]),
     document.getElementById('root')
@@ -125,7 +138,7 @@ function render() {
     cellSize: 30
   })
   if (document.querySelector('svg') === null) {
-    document.querySelector('.credit-card').appendChild(pattern.toSVG());
+    document.querySelector('.credit-card-front').appendChild(pattern.toSVG());
   }
 }
 
