@@ -59,6 +59,7 @@ div#root {
   height: 22px;
   font-size: 25px;
   z-index: 9999999;
+  user-select: none;
 }
 
 .credit-card-number > input {
@@ -348,13 +349,26 @@ span.metal.fourth-col {
 }
 
 button.flip-card {
-  background-color: #5282c6;
+  background-color: #fff;
   border-radius: 5px;
   width: 122px;
   height: 25px;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+  color: #727277;
+  text-transform: uppercase;
   border: 1px;
-  color: #50278b;
-  font-size: 14px;
+  font-size: 13px;
   font-family: 'Courier Prime', monospace;
+  cursor: pointer;
+}
+
+.bank-name {
+  position: absolute;
+  top: 10px;
+  font-size: 17px;
+  z-index: 9999999;
+  left: 25px;
+  color: #656565;
+  text-transform: uppercase;
+  user-select: none;
 }

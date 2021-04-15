@@ -86,16 +86,17 @@ function render() {
     e(ReactRedux.Provider, { store: store }, [
       e('div', {className: 'credit-card ' + (state.cardIsFlipped ? 'flipped' : '')}, [
         e('div', {className: 'credit-card-front'}, [
-          e('div', {className: 'chip'}, [
-            e('div', {className: 'side-top-left'}, ''),
-            e('div', {className: 'top'}, ''),
-            e('div', {className: 'center'}, ''),
-            e('div', {className: 'bottom'}, ''),
-            e('div', {className: 'side-right'}, ''),
-            e('div', {className: 'vertical-top'}, ''),
-            e('div', {className: 'vertical-center'}, ''),
-            e('div', {className: 'vertical-bottom'}, ''),
-          ]),
+          e('div', {className: 'bank-name'}, 'Spacious bank'),
+            e('div', {className: 'chip'}, [
+              e('div', {className: 'side-top-left'}, ''),
+              e('div', {className: 'top'}, ''),
+              e('div', {className: 'center'}, ''),
+              e('div', {className: 'bottom'}, ''),
+              e('div', {className: 'side-right'}, ''),
+              e('div', {className: 'vertical-top'}, ''),
+              e('div', {className: 'vertical-center'}, ''),
+              e('div', {className: 'vertical-bottom'}, ''),
+            ]),
           e('div', {className: 'credit-card-number'}, [
             e('input', {type: 'text', maxLength: '16', onInput: function(event) {
               store.dispatch({type: 'SET-CARD-NUMBER', payload: event.target.value})
