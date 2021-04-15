@@ -334,6 +334,7 @@ span.metal.fourth-col {
   bottom: 15px;
   right: 15px;
   height: 22px;
+  top: 50%;
 }
 
 .verification-code > input {
@@ -342,7 +343,7 @@ span.metal.fourth-col {
   position: absolute;
   bottom: 19px;
   z-index: 99995;
-  right: 10px;
+  right: 1px;
   cursor: pointer;
 }
 
@@ -387,8 +388,35 @@ button.flip-card {
 
 .left-side {
   font-size: 8px;
-  transform: translate(-89px, -7px);
+  transform: translate(-96px, -7px);
   color: white;
   position: absolute;
   text-transform: uppercase;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 6px solid #fff;
+  position: absolute;
+  transform: translate(-69px, -2px);
+}
+
+p.first-row {
+  position: absolute;
+  color: #fff;
+  font-size: 9px;
+  top: 56%;
+  left: 6px;
+}
+
+p.second-row {
+  position: absolute;
+  color: #fff;
+  font-size: 9px;
+  bottom: 10px;
+  font-family: 'Courier Prime', monospace;
+  left: 6px;
 }

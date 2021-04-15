@@ -113,6 +113,7 @@ function render() {
           e('div', {className: 'expiry-dates'}, [
             e('div', {className: 'top-side'}, 'Month/Year'),
             e('div', {className: 'left-side'}, 'Valid thru'),
+            e('div', {className: 'arrow-right'}, null),
             e('input', {type: 'text', maxLength: '4', onInput: function(event) {
               store.dispatch({type: 'SET-EXPIRY-DATE', payload: event.target.value})
             }}, null),
@@ -136,6 +137,10 @@ function render() {
               store.dispatch({type: 'SET-VERIFICATION-CODE', payload: event.target.value})
             }}, null),
             e('span', {className: 'code'}, verificationCode)
+          ]),
+          e('div', {className: 'lorem-text'}, [
+            (e('p', {className: 'first-row'}, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt nunc pulvinar sapien et ligula.')),
+            (e('p', {className: 'second-row'}, 'Feugiat in fermentum posuere urna nec. Tristique senectus et netus et.' )),
           ]),
         ]),
         e('button', {className: 'flip-card', onClick: function(event) {
