@@ -103,7 +103,7 @@ span.metal.fourth-col {
 
 .card-holder {
   position: absolute;
-  bottom: 33px;
+  bottom: 24px;
   transform: translateX(16px);
   width: 206px;
   height: 22px;
@@ -126,7 +126,7 @@ span.metal.fourth-col {
 .expiry-dates {
   position: absolute;
   z-index: 9999999;
-  bottom: 15px;
+  bottom: 18px;
   right: 15px;
   height: 22px;
 }
@@ -136,7 +136,7 @@ span.metal.fourth-col {
   width: 50px;
   position: absolute;
   transform: translateX(-62px);
-  bottom: 19px;
+  bottom: 15px;
   z-index: 99999999;
   cursor: pointer;
 }
@@ -145,7 +145,7 @@ span.metal.fourth-col {
   position: absolute;
   transform: translateX(-58px);
   font-size: 17px;
-  bottom: 19px;
+  bottom: 9px;
   backface-visibility: hidden;
   background: linear-gradient(#262626,#eaeaea,#262626);
   -webkit-background-clip: text;
@@ -314,6 +314,11 @@ span.metal.fourth-col {
   z-index: 99999999999;
   height: 50px;
   top: 5%;
+  background: rgb(63,65,62);
+  background: -moz-radial-gradient(circle, rgba(63,65,62,1) 0%, rgba(0,0,0,1) 60%);
+  background: -webkit-radial-gradient(circle, rgba(63,65,62,1) 0%, rgba(0,0,0,1) 60%);
+  background: radial-gradient(circle, rgba(63,65,62,1) 0%, rgba(0,0,0,1) 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f413e",endColorstr="#000000",GradientType=1);
 }
 
 .flip-card {
@@ -370,4 +375,12 @@ button.flip-card {
   color: #656565;
   text-transform: uppercase;
   user-select: none;
+}
+
+.top-side {
+  font-size: 8px;
+  transform: translate(-58px, -17px);
+  color: white;
+  position: absolute;
+  text-transform: uppercase;
 }

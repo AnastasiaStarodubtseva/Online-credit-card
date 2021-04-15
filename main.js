@@ -111,6 +111,7 @@ function render() {
             e('span', {className: 'metal second-row fourth-col'}, fourthCol)
           ]),
           e('div', {className: 'expiry-dates'}, [
+            e('div', {className: 'top-side'}, 'Month/Year'),
             e('input', {type: 'text', maxLength: '4', onInput: function(event) {
               store.dispatch({type: 'SET-EXPIRY-DATE', payload: event.target.value})
             }}, null),
