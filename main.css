@@ -67,6 +67,7 @@ div#root {
   width: 280px;
   position: absolute;
   z-index: 9999999;
+  cursor: pointer;
 }
 
 .metal {
@@ -114,6 +115,7 @@ span.metal.fourth-col {
   width: 210px;
   position: absolute;
   z-index: 9999999;
+  cursor: pointer;
 }
 
 .metal.second-row {
@@ -136,6 +138,7 @@ span.metal.fourth-col {
   transform: translateX(-62px);
   bottom: 19px;
   z-index: 99999999;
+  cursor: pointer;
 }
 
 .dates {
@@ -335,6 +338,7 @@ span.metal.fourth-col {
   bottom: 19px;
   z-index: 99995;
   right: 10px;
+  cursor: pointer;
 }
 
 .code {
@@ -360,6 +364,7 @@ button.flip-card {
   font-size: 13px;
   font-family: 'Courier Prime', monospace;
   cursor: pointer;
+  bottom: -60px;
 }
 
 .bank-name {
