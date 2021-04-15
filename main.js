@@ -1,7 +1,7 @@
 function reducer(model, action){
   switch(action.type) {
     case 'SET-CARD-NUMBER':
-      model.cardNumber = action.payload.split('');
+      model.cardNumber = action.payload.replace(/\D+/g, '').split('');
       return model;
     case 'SET-EXPIRY-DATE':
       model.expiryDate = action.payload.replace(/\D+/g, '').split('');
