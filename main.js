@@ -108,7 +108,8 @@ function render() {
             e('span', {className: 'metal second-row first-col'}, firstCol),
             e('span', {className: 'metal second-row second-col'}, secondCol),
             e('span', {className: 'metal second-row third-col'}, thirdCol),
-            e('span', {className: 'metal second-row fourth-col'}, fourthCol)
+            e('span', {className: 'metal second-row fourth-col'}, fourthCol),
+            e('div', {className: 'system-number'} , '123')
           ]),
           e('div', {className: 'expiry-dates'}, [
             e('div', {className: 'top-side'}, 'Month/Year'),

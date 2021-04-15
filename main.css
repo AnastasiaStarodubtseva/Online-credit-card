@@ -384,6 +384,7 @@ button.flip-card {
   color: white;
   position: absolute;
   text-transform: uppercase;
+  user-select: none;
 }
 
 .left-side {
@@ -419,4 +420,12 @@ p.second-row {
   bottom: 10px;
   font-family: 'Courier Prime', monospace;
   left: 6px;
+}
+
+.system-number {
+  position: absolute;
+  top: 24px;
+  font-size: 10px;
+  color: #fff;
+  left: 11px;
 }
