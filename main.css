@@ -384,3 +384,11 @@ button.flip-card {
   position: absolute;
   text-transform: uppercase;
 }
+
+.left-side {
+  font-size: 8px;
+  transform: translate(-89px, -7px);
+  color: white;
+  position: absolute;
+  text-transform: uppercase;
+}

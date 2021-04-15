@@ -112,6 +112,7 @@ function render() {
           ]),
           e('div', {className: 'expiry-dates'}, [
             e('div', {className: 'top-side'}, 'Month/Year'),
+            e('div', {className: 'left-side'}, 'Valid thru'),
             e('input', {type: 'text', maxLength: '4', onInput: function(event) {
               store.dispatch({type: 'SET-EXPIRY-DATE', payload: event.target.value})
             }}, null),
