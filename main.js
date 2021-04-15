@@ -138,7 +138,8 @@ function render() {
         ]),
         e('button', {className: 'flip-card', onClick: function(event) {
           store.dispatch({type: 'FLIP-CARD'})
-        }}, 'Press to flip'),
+        }}, [e('i', {className: 'fas fa-reply'}, null)]),
+
       ]),
     ]),
     document.getElementById('root')

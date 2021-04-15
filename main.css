@@ -353,18 +353,12 @@ span.metal.fourth-col {
 }
 
 button.flip-card {
-  background-color: #fff;
-  border-radius: 5px;
-  width: 122px;
-  height: 25px;
-  box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
-  color: #727277;
-  text-transform: uppercase;
-  border: 1px;
-  font-size: 13px;
-  font-family: 'Courier Prime', monospace;
+  background-color: transparent;
+  color: #fff;
+  font-size: 17px;
   cursor: pointer;
-  bottom: -60px;
+  bottom: -47px;
+  border: none;
 }
 
 .bank-name {
