@@ -245,7 +245,7 @@ span.metal.fourth-col {
 .visa-logo {
   width: 60px;
   position: absolute;
-  z-index: 99999999999;
+  z-index: 99999;
   top: 18px;
   right: 20px;
   user-select: none;
@@ -254,7 +254,7 @@ span.metal.fourth-col {
 .mastercard-logo {
   width: 60px;
   position: absolute;
-  z-index: 99999999999;
+  z-index: 99999;
   top: 10px;
   right: 20px;
   user-select: none;
@@ -263,7 +263,7 @@ span.metal.fourth-col {
 .americanExpress-logo {
   width: 65px;
   position: absolute;
-  z-index: 99999999999;
+  z-index: 99999;
   top: 1px;
   right: 20px;
   user-select: none;
@@ -279,6 +279,7 @@ span.metal.fourth-col {
   transition: transform .6s linear;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
   border-radius: 3mm;
+  z-index: 9999;
 }
 
 .credit-card-back {
