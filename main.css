@@ -345,3 +345,15 @@ span.metal.fourth-col {
   color: #000;
   z-index: 9999;
 }
+
+button.flip-card {
+  background-color: #5282c6;
+  border-radius: 5px;
+  width: 122px;
+  height: 25px;
+  box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
+  border: 1px;
+  color: #50278b;
+  font-size: 14px;
+  font-family: 'Courier Prime', monospace;
+}

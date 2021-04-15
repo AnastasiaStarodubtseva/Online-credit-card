@@ -56,7 +56,7 @@ function luhn(cardNumber) {
 function cardProvider(cardNumber) {
   switch (cardNumber[0]) {
     case '3':
-      return e('img', {className: 'americanExpress-logo', src: './img/american-express.png'}, null );
+      return e('img', {className: 'americanExpress-logo', src: './img/american-express.png'}, null);
     case '4':
       return e('img', {className: 'visa-logo', src: './img/visa.png'}, null);
     case '5':
@@ -137,7 +137,7 @@ function render() {
         ]),
         e('button', {className: 'flip-card', onClick: function(event) {
           store.dispatch({type: 'FLIP-CARD'})
-        }}, 'Button'),
+        }}, 'Press to flip'),
       ]),
     ]),
     document.getElementById('root')
