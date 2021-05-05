@@ -134,7 +134,6 @@ function render() {
           e('div', {className: 'magnetic-stripe'}, []),
           e('div', {className: 'verification-code'}, [
             e('input', {type: 'text', maxLength: '4', onInput: function(event) {
-              console.log(event);
               store.dispatch({type: 'SET-VERIFICATION-CODE', payload: event.target.value})
             }}, null),
             e('span', {className: 'code'}, verificationCode)
